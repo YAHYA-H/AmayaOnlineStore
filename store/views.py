@@ -8,13 +8,14 @@ def product_list(request, category_slug=None):
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
-        product = products.filter(category=category)
-    return render(request, 'store/product/list.html', {
+        products = products.filter(category=category)
+    return render(request, 'product/list.html', {
         'category': category,
-        'products': products
+        'products': products,
+        'categories': categories
     })
 
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    return render(request, 'store/products/detail.html', {'product': product})
+    return render(request, 'product/detail.html', {'product': product})
