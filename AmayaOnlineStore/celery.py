@@ -2,7 +2,7 @@ import os
 from celery import Celery
 
 #set the default Django setting module for the 'celery' program
-os.environ.setdefault('DJANGO.SETTING_MODULE', 'AmayaOnlineStore.settings.py')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AmayaOnlineStore.settings')
 
 app = Celery('AmayaOnlineStore')
 
