@@ -100,6 +100,14 @@ DATABASES = {
     }
 }
 
+# Braintree settings
+BRAINTREE_MERCHANT_ID = os.getenv('BRAINTREE_MERCHANT_ID')  # Merchant ID
+BRAINTREE_PUBLIC_KEY = os.getenv('BRAINTREE_PUBLIC_KEY')  # Public Key
+BRAINTREE_PRIVATE_KEY = os.getenv('BRAINTREE_PRIVATE_KEY')  # Private key
+from braintree import Configuration, Environment
+Configuration.configure(Environment.Sandbox, BRAINTREE_MERCHANT_ID,
+                        BRAINTREE_PUBLIC_KEY, BRAINTREE_PRIVATE_KEY)
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
