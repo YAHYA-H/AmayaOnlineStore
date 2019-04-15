@@ -4,6 +4,9 @@ from store.models import Product
 
 class Order(models.Model):
     # store order details and customer info
+    braintree_id = models.CharField(
+        max_length=150, blank=True
+    )  # store the transaction ID related to braintree transaction
     first_name = models.CharField(max_length=80)
     last_name = models.CharField(max_length=80)
     email = models.EmailField()
